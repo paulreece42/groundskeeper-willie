@@ -1,0 +1,3 @@
+WaterZoneIntent water zone {zone} 
+
+WaterZoneDurrIntent water zone {zone} for {durr}

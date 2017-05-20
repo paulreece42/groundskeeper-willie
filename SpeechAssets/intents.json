@@ -1,0 +1,118 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "WaterZone",
+      "samples": [
+        "water zone {zone} "
+      ],
+      "slots": [
+        {
+          "name": "zone",
+          "type": "AMAZON.NUMBER",
+          "samples": [
+            "{zone}",
+            "zone {zone}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WaterZoneDurr",
+      "samples": [
+        "water zone {zone} for {durr}"
+      ],
+      "slots": [
+        {
+          "name": "zone",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "durr",
+          "type": "AMAZON.DURATION",
+          "samples": []
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Elicit.Intent-WaterZone.IntentSlot-zone",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Which zone should I water?"
+        }
+      ]
+    },
+    {
+      "id": "Confirm.Intent-WaterZoneDurr",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "ye want me to water zone {zone} for {durr}, is that right ye dobber?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "WaterZone",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "zone",
+            "type": "AMAZON.NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-WaterZone.IntentSlot-zone"
+            }
+          }
+        ]
+      },
+      {
+        "name": "WaterZoneDurr",
+        "confirmationRequired": true,
+        "prompts": {
+          "confirm": "Confirm.Intent-WaterZoneDurr"
+        },
+        "slots": [
+          {
+            "name": "zone",
+            "type": "AMAZON.NUMBER",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          },
+          {
+            "name": "durr",
+            "type": "AMAZON.DURATION",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          }
+        ]
+      }
+    ]
+  }
+}
