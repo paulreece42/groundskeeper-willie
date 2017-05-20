@@ -72,7 +72,7 @@ def hello(zone):
         return statement(speech_text).simple_card("""What Willie is trying to say is: "the jerk who programmed this was too lazy to add a proper response for whatever error condition you've triggered." """)
 
 @ask.intent('WaterZoneDurr')
-        speech_text = ""Not yet implemented"""
+        speech_text = """Not yet implemented"""
         return statement(speech_text).simple_card("""What Willie is trying to say is: "the jerk who programmed this was too lazy to add a proper response for whatever error condition you've triggered." """)
 
 @ask.intent('AMAZON.StopIntent')
